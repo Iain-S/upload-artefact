@@ -3,6 +3,7 @@ name: Upload LanceMcCarthy
 on: push
 jobs:
   upload-coverage-job:
+    environment: azure-blob-upload-env 
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello" > world.txt
