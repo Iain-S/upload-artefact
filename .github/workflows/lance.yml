@@ -9,6 +9,6 @@ jobs:
       - uses: LanceMcCarthy/Action-AzureBlobUpload@v1.11.0
         name: Azure Blob Upload
         with:
-          connection_string: ${{ secrets.YourAzureBlobConnectionString }}
+          connection_string: ${{ secrets.YOURAZUREBLOBCONNECTIONSTRING }}
           container_name: rcpblobcontainer1
           source_folder: world.txt
