@@ -1,0 +1,14 @@
+---
+name: Upload Coverage Workflow
+on: push
+jobs:
+  upload-coverage-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello" > world.txt
+      - uses: LanceMcCarthy/Action-AzureBlobUpload@v1.11.0
+        name: Azure Blob Upload
+        with:
+          connection_string: ${{ secrets.YourAzureBlobConnectionString }}
+          container_name: rcpblobcontainer1
+          source_folder: world.txt
