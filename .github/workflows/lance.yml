@@ -6,10 +6,19 @@ jobs:
     environment: azure-blob-upload-env 
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello" > world.txt
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.9
+      - run: pip install --requirement requirements.txt
+      - run: pytest --cov=.
+      - run: coverage xml
+      - run: genbadge coverage --input-file coverage.xml --local
       - uses: LanceMcCarthy/Action-AzureBlobUpload@v1.11.0
         name: Azure Blob Upload
         with:
           connection_string: ${{ secrets.YOURAZUREBLOBCONNECTIONSTRING }}
           container_name: rcpblobcontainer1
-          source_folder: world.txt
+          source_folder: coverage-badge.svg
+
