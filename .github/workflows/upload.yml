@@ -1,6 +1,6 @@
 ---
 name: Upload Coverage Workflow
-on: push
+on: pull_request
 jobs:
   upload-coverage-job:
     runs-on: ubuntu-latest
