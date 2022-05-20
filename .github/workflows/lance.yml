@@ -1,5 +1,5 @@
 ---
-name: Upload Coverage Workflow
+name: Upload LanceMcCarthy
 on: push
 jobs:
   upload-coverage-job:
